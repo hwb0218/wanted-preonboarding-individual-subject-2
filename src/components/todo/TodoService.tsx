@@ -26,7 +26,7 @@ export const useTodo = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalInfo, setModalInfo] = useState({ type: "", text: "" });
   const [nextIdState, setNextIdState] = useState(0);
-  console.log(nextIdState);
+
   useEffect(() => {
     loadData();
   }, []);
@@ -50,11 +50,10 @@ export const useTodo = () => {
   };
 
   const createTodo = (todo: Itodo) => {
-    let nextId: number = todoState.length > 0 ? todoState[todoState.length - 1].id + 1 : 1;
     setTodoState((prevState) =>
       prevState.concat({
         ...todo,
-        id: nextId,
+        id: nextIdState,
       })
     );
   };
@@ -67,8 +66,10 @@ export const useTodo = () => {
 
   const loadData = () => {
     initialTodos = JSON.parse(localStorage.getItem("todos")!) || [];
+    console.log(initialTodos);
     if (initialTodos && initialTodos.length >= 1) {
       incrementNextId();
+      setNextIdState(Math.max(...initialTodos.map((todo: Itodo) => todo.id)) + 1);
     }
     setTodoState(initialTodos);
   };
