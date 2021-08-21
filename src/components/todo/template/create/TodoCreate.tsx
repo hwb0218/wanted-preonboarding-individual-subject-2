@@ -92,7 +92,7 @@ const TodoCreate = ({
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // 새로고침 방지
+    e.preventDefault();
     if (!value || !selectedDate) {
       const modalInfo = {
         type: "createToDo",
@@ -106,10 +106,10 @@ const TodoCreate = ({
       done: false,
       date: selectedDate,
     });
-    incrementNextId(); // nextId 하나 증가
+    incrementNextId();
 
-    setValue(""); // input 초기화
-    setOpen(false); // open 닫기
+    setValue("");
+    setOpen(false);
   };
 
   return (

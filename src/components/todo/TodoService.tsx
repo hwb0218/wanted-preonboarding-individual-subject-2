@@ -21,13 +21,12 @@ export interface EditTodo {
 
 let initialTodos: Itodo[] = [];
 
-// hooks 폴더안에 넣자 커스텀훅이니까
 export const useTodo = () => {
   const [todoState, setTodoState] = useState(initialTodos);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalInfo, setModalInfo] = useState({ type: "", text: "" });
   const [nextIdState, setNextIdState] = useState(0);
-
+  console.log(nextIdState);
   useEffect(() => {
     loadData();
   }, []);
@@ -41,14 +40,12 @@ export const useTodo = () => {
   };
 
   const toggleTodo = (id: number) => {
-    //@TODO
     setTodoState((prevState) =>
       prevState.map((todo: Itodo) => (todo.id === id ? { ...todo, done: !todo.done } : todo))
     );
   };
 
   const removeTodo = (id: number) => {
-    // @removeTodo 수정
     setTodoState((prevState) => prevState.filter((todo: Itodo) => todo.id !== id));
   };
 
@@ -69,11 +66,7 @@ export const useTodo = () => {
   };
 
   const loadData = () => {
-    let data: string | null = localStorage.getItem("todos");
-    if (data === null) {
-      return localStorage.setItem("todos", JSON.stringify(todoState));
-    }
-    initialTodos = JSON.parse(data);
+    initialTodos = JSON.parse(localStorage.getItem("todos")!) || [];
     if (initialTodos && initialTodos.length >= 1) {
       incrementNextId();
     }
