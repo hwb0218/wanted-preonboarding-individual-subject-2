@@ -74,6 +74,7 @@ const EditTodoItem = ({ todo, handleShowEdit, editTodo }: EditTodoItemProps) => 
       <EditInput type="text" value={editTodoState.text} onChange={handleChangeTodo} />
       <EditDate
         defaultValue={moment(editTodoState.date)}
+        allowClear={false}
         disabledDate={(current) => current && current < moment().subtract(1, "days")}
         bordered={false}
         onChange={handleChangeDate}
