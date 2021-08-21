@@ -25,6 +25,6 @@ npm start
 ## 📌 추가 기능 구현
 
 - Todo text 또는 완료 목표일 수정 기능 추가  
-  - edit 버튼 클릭 시 text와 datepicker 날짜 수정 기능 설정
+  - edit 버튼 클릭 시 text와 datepicker 날짜 수정 기능 
   - X 버튼 클릭 시 초기 상태값으로 설정 
 - Datepicker 완료 목표일을 오늘 날짜부터 선택되도록 활성화
