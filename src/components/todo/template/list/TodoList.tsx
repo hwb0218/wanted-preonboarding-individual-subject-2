@@ -1,4 +1,4 @@
-import { Itodo } from "components/todo/TodoService";
+import { Itodo, ModalInfo, EditTodo } from "components/todo/TodoService";
 import React from "react";
 import styled from "styled-components";
 import TodoItem from "./item/TodoItem";
@@ -14,14 +14,29 @@ interface TodoListProps {
   todos: Itodo[];
   toggleTodo: (id: number) => void;
   removeTodo: (id: number) => void;
+  editTodo: (id: number, editTodo: EditTodo) => void;
+  handleModalVisible: (visible: boolean, type: ModalInfo) => void;
 }
 
-const TodoList = ({ toggleTodo, removeTodo, todos }: TodoListProps) => {
+const TodoList = ({
+  toggleTodo,
+  removeTodo,
+  editTodo,
+  todos,
+  handleModalVisible,
+}: TodoListProps) => {
   return (
     <TodoListBlock>
       {todos &&
         todos.map((todo) => (
-          <TodoItem toggleTodo={toggleTodo} removeTodo={removeTodo} key={todo.id} todo={todo} />
+          <TodoItem
+            toggleTodo={toggleTodo}
+            removeTodo={removeTodo}
+            editTodo={editTodo}
+            key={todo.id}
+            todo={todo}
+            handleModalVisible={handleModalVisible}
+          />
         ))}
     </TodoListBlock>
   );
