@@ -48,6 +48,8 @@ const CancleEditBtn = styled.button`
   background: inherit;
   color: #777777;
   cursor: pointer;
+  margin-left: 10px;
+  padding: 0;
 `;
 
 const EditTodoItem = ({ todo, handleShowEdit, editTodo }: EditTodoItemProps) => {
