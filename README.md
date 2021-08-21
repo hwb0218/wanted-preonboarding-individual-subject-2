@@ -1,4 +1,4 @@
-# [Assignment] 솔라커넥트 기업과제
+# 솔라커넥트 기업과제
 ### `Todo List`
 
 ### 🔗 [배포링크](https://solar-connect-70015c.netlify.app/)
