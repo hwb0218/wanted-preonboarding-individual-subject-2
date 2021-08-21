@@ -66,7 +66,6 @@ export const useTodo = () => {
 
   const loadData = () => {
     initialTodos = JSON.parse(localStorage.getItem("todos")!) || [];
-    console.log(initialTodos);
     if (initialTodos && initialTodos.length >= 1) {
       incrementNextId();
       setNextIdState(Math.max(...initialTodos.map((todo: Itodo) => todo.id)) + 1);
